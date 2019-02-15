@@ -34,6 +34,7 @@
 - name: Add users
   mysql_user:
     name: "{{ item.name }}"
+    host: "{{ item.host | default('localhost') }}"
     password: "{{ item.password }}"
     priv: "{{ item.priv }}"
     state: "{{ item.state | default('present') }}"
