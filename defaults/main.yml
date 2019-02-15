@@ -1,0 +1,12 @@
+---
+
+mysql_options:
+  - option: bind-address
+    value: 127.0.0.1
+    section: mysqld
+  - option: port
+    value: 3306
+    section: mysqld
+
+mysql_databases: []
+mysql_users: []

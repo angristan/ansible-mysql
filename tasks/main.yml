@@ -1,0 +1,44 @@
+- name: Install MariaDB
+  apt:
+    name:
+    - mariadb-server
+    - mariadb-client
+  tags: mysql.install
+
+- name: Install python-mysqldb (for Ansible)
+  apt:
+    name: python-mysqldb
+  tags: mysql.install
+
+- name: Create databases
+  mysql_db:
+    name: "{{ item.name }}"
+    state: "{{ item.state | default('present') }}"
+  with_items: "{{ mysql_databases }}"
+  tags: mysql.dbs
+
+- name: Add users
+  mysql_user:
+    name: "{{ item.name }}"
+    password: "{{ item.password }}"
+    priv: "{{ item.priv }}"
+    state: "{{ item.state | default('present') }}"
+  with_items: "{{ mysql_users }}"
+  tags: mysql.users
+
+- name: Set MySQL options
+  ini_file:
+    path: /etc/mysql/my.cnf
+    section: "{{ item.section }}"
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+  with_items: "{{ mysql_options }}"
+  notify: restart mysql
+  tags: mysql.options
+
+- name: Enable and start MySQL service
+  tags: mysql.install
+  systemd:
+    name: mysql.service
+    enabled: true
+    state: started
