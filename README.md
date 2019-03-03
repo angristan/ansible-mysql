@@ -25,7 +25,7 @@ The role should work on all Debian-based distributions.
         password: "{{ vault_mysql_password_forum }}"
         priv: 'forum.*:ALL'
     mysql_options:
-      - option: bind-address
-        value: 0.0.0.0
-        section: mysqld
+      - {section: mysqld, option: bind-address, value: 0.0.0.0}
+      - {section: mysqld, option: innodb_buffer_pool_size, value: 1G}
+      - {section: mysqld, option: innodb_io_capacity, value: 4000}
 ```
