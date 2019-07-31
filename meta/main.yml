@@ -1,0 +1,22 @@
+galaxy_info:
+  role_name: mysql
+  author: angristan
+  description: Ansible role for MySQL/MariaDB
+  license: MIT
+  min_ansible_version: 2.4
+
+  platforms:
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+
+  galaxy_tags:
+    - mysql
+    - mariadb
+    - debian
+    - ubuntu
+
+dependencies: []
