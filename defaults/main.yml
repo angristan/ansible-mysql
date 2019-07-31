@@ -4,7 +4,7 @@ mariadb_apt_key: '0xF1656F24C74CD1D8'
 mariadb_apt_keyserver: keyserver.ubuntu.com
 mariadb_apt_mirror: http://mariadb.mirrors.ovh.net
 mariadb_install_from_official_repo: true
-mariadb_version: 10.3
+mariadb_version: 10.4
 
 mysql_options:
   - option: bind-address
