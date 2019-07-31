@@ -6,6 +6,14 @@ This is a simple role that will install MariaDB and handle users, databases and 
 
 The role should work on all Debian-based distributions.
 
+## Installation
+
+Add this to your `requirements.yml`:
+
+```yml
+- src: https://github.com/angristan/ansible-mysql
+```
+
 ## Sample playbook
 
 ```yaml
