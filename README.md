@@ -1,7 +1,5 @@
 # Ansible role for MySQL
 
-[![CircleCI](https://circleci.com/gh/angristan/ansible-mysql.svg?style=svg)](https://circleci.com/gh/angristan/ansible-mysql)
-
 This is a simple role that will install MariaDB and handle users, databases and configuration.
 
 The role should work on all Debian-based distributions.
